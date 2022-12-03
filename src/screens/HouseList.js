@@ -1,23 +1,36 @@
+import { Grid, Typography } from "@mui/material";
 import { useState } from "react";
 import HouseCard from "../components/HouseCard";
+import { defaultHexColor } from "../globals";
 
+function HouseList({ data }) {
+  console.log(data);
+  //const [data, setData] = useState([]);
 
-function HouseList() {
-    const [data, setData] = useState([])
+  const getData = () => {};
 
-    const getData = () => {
-
-    }
-
-
-    return (
-        <div className="house-list">
-            <p>Našli sme {data.length} ponúk.</p>
-            {data.map(x =>
-                <HouseCard data={x} />
-            )}
-        </div>
-    );
+  return (
+    <Grid container justifyContent={"center"}>
+      <Grid item xs={12}>
+        <Typography paddingLeft={5} padding={2} variant={"h5"}>
+          Našli sme{" "}
+          <span style={{ color: defaultHexColor }}>{data.length}</span> ponúk.
+        </Typography>
+      </Grid>
+      {data.map((residence) => (
+        <Grid
+          item
+          md={5}
+          xs={12}
+          display="flex"
+          justifyContent="center"
+          margin={1}
+        >
+          <HouseCard data={residence} key={residence.id} />
+        </Grid>
+      ))}
+    </Grid>
+  );
 }
 
 export default HouseList;

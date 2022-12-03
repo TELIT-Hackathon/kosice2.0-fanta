@@ -8,6 +8,7 @@ import Home from "./screens/Home";
 import HouseList from "./screens/HouseList";
 
 import { Firestore } from "./firebase";
+import mockupData from "./mockup_data.json";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -19,7 +20,7 @@ const router = createBrowserRouter([
   },
   {
     path: "results",
-    element: <HouseList />,
+    element: <HouseList data={mockupData.data} />,
   },
 ]);
 
