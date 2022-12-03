@@ -1,24 +1,24 @@
 
 import { Grid, Typography } from "@mui/material";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import HouseCard from "../components/HouseCard";
 import { defaultHexColor } from "../globals";
 import { db, getAccomadation } from '../firebase'
 
-function HouseList({ data }) {
+function HouseList() {
 
     const [data, setData] = useState([])
     const getData = async () => {
-        const data = await getAccomadation(db)
-        console.log(data)
-        setData(data)
+        const accomadation = await getAccomadation(db)
+        console.log(accomadation)
+        setData(accomadation)
     }
 
 
     useEffect(() => {
         // Update the document title using the browser API    
         getData()
-    });
+    },[]);
 
 
 
