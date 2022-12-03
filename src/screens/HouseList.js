@@ -6,14 +6,9 @@ import { defaultHexColor } from "../globals";
 import { db, getAccomadation } from '../firebase'
 
 function HouseList({ data }) {
-  console.log(data);
-  //const [data, setData] = useState([]);
 
-  const getData = () => {};
-
-const getData = async () => {
-        // const snapshot1 = await db.collection('accomadation').get();
-        // console.log(snapshot1)
+    const [data, setData] = useState([])
+    const getData = async () => {
         const data = await getAccomadation(db)
         console.log(data)
         setData(data)
@@ -27,28 +22,28 @@ const getData = async () => {
 
 
 
-  return (
-    <Grid container justifyContent={"center"} maxWidth="1366px" margin="auto">
-      <Grid item xs={12}>
-        <Typography paddingLeft={5} padding={2} variant={"h5"}>
-          Našli sme{" "}
-          <span style={{ color: defaultHexColor }}>{data.length}</span> ponúk.
-        </Typography>
-      </Grid>
-      {data.map((residence) => (
-        <Grid
-          item
-          md={5}
-          xs={12}
-          display="flex"
-          justifyContent="center"
-          margin={1}
-        >
-          <HouseCard data={residence} key={residence.id} />
+    return (
+        <Grid container justifyContent={"center"} maxWidth="1366px" margin="auto">
+            <Grid item xs={12}>
+                <Typography paddingLeft={5} padding={2} variant={"h5"}>
+                    Našli sme{" "}
+                    <span style={{ color: defaultHexColor }}>{data.length}</span> ponúk.
+                </Typography>
+            </Grid>
+            {data.map((residence) => (
+                <Grid
+                    item
+                    md={5}
+                    xs={12}
+                    display="flex"
+                    justifyContent="center"
+                    margin={1}
+                >
+                    <HouseCard data={residence} key={residence.id} />
+                </Grid>
+            ))}
         </Grid>
-      ))}
-    </Grid>
-  );
+    );
 
 }
 
