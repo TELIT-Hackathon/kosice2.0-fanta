@@ -23,11 +23,14 @@ function Roommate({ setNextStep }) {
         <div className='form-container mb-4'>
           <div className='form-body'>
 
-            <div className="row form-checkbox">
-              <Field type="checkbox" name="elevator" />
-              <label className="form-check-label">
-                Chcem spolubývajúceho
-              </label>
+            <div className="row">
+              <div className="form-checkbox">
+                <Field type="checkbox" name="elevator" />
+                <label className="form-check-label">
+                  Chcem spolubývajúceho
+                </label>
+              </div>
+
             </div>
 
             <div className='row '>
