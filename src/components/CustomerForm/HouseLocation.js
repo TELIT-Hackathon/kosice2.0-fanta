@@ -1,9 +1,8 @@
 import React from 'react';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
-import GenericButton from '../GenericButton';
 // import * as Yup from 'yup';
 
-function Location({setNextStep}) {
+function HouseLocation({ setNextStep }) {
 
   const handleNext = () => {
     console.log("Next")
@@ -35,11 +34,9 @@ function Location({setNextStep}) {
       //     .required('Required'),
       //   email: Yup.string().email('Invalid email address').required('Required'),
       // })}
-      onSubmit={(values, { setSubmitting }) => {
-        setTimeout(() => {
-          alert(JSON.stringify(values, null, 2));
-          setSubmitting(false);
-        }, 400);
+      onSubmit={(values) => {
+        console.log(values);
+        setNextStep(values)
       }}
     >
       <Form className='form'>
@@ -106,12 +103,14 @@ function Location({setNextStep}) {
               </Field>
               <div className="col"> </div>
             </div>
+
           </div>
         </div>
-        <GenericButton text={"Ďalej"} type="submit" onClick={handleNext} ></GenericButton>
+        <button type="submit" onClick={handleNext} className="btn next btn-primary">Ďalej</button>
+        {/* <GenericButton text={"Ďalej"} type="submit" onClick={handleNext} ></GenericButton> */}
       </Form>
     </Formik>
   );
 }
 
-export default Location;
+export default HouseLocation;

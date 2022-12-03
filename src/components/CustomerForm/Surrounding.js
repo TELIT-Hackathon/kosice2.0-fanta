@@ -2,13 +2,12 @@ import React from 'react';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 // import * as Yup from 'yup';
 
-function Surrounding({setNextStep}) {
+const Surrounding = ({setNextStep}) => {
 
   const handleNext = () => {
     console.log("Next")
     setNextStep()
   }
-
 
   return (
     <Formik
@@ -25,16 +24,14 @@ function Surrounding({setNextStep}) {
       //     .required('Required'),
       //   email: Yup.string().email('Invalid email address').required('Required'),
       // })}
-      onSubmit={(values, { setSubmitting }) => {
-        setTimeout(() => {
-          alert(JSON.stringify(values, null, 2));
-          setSubmitting(false);
-        }, 400);
+      onSubmit={(values) => {
+        console.log(values);
+        setNextStep(values)
       }}
     >
       <Form className='form'>
 
-        <div className='form-container'>
+        <div className='form-container mb-4'>
           <div className='form-body'>
 
 
@@ -43,15 +40,15 @@ function Surrounding({setNextStep}) {
               <Field className="form-control input-border" name="street" type="text" placeholder="Ulica" />
               <ErrorMessage name="firstName" />
             </div>
-
+            
            
           </div>
         </div>
 
-        <button type="submit" className='mt-3 btn btn-primary' onClick={handleNext}>Ďalej</button>
+        <button type="submit"  className="btn next btn-primary">Ďalej</button>
       </Form>
     </Formik>
   );
 }
 
-export default Location;
+export default Surrounding;
