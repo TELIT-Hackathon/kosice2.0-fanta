@@ -2,7 +2,7 @@ import { Button } from "@mui/material";
 import React from "react";
 import { defaultHexColor } from "../globals";
 
-function GenericButton({ text }) {
+function GenericButton({ text , onClick}) {
   return (
     <Button
       sx={{
@@ -21,6 +21,7 @@ function GenericButton({ text }) {
         },
       }}
       variant="contained"
+      onClick={onClick}
     >
       {text}
     </Button>
