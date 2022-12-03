@@ -1,19 +1,31 @@
-import React, { useState } from 'react';
+// import React, { useState } from 'react';
+import { useState, useEffect } from "react";
 import Location from '../components/CustomerForm/Location';
+import Surrounding from '../components/CustomerForm/Surrounding';
 
 import "./CustomerForm.scss"
 
 
 function CustomerForm() {
+
+
+
   const[step, setStep] = useState(0);
+  const[data, setData] = useState({});
 
   const getStep = () => {
     return steps.find(x => x.id === step)?.component;
   }
 
-  const setNextStep = () => {
+  const setNextStep = (StepData) => {
     setStep(step + 1);
+    setData(...data, ...StepData)
+
   }
+
+  // const creteFilter = () => {
+
+  // }
 
   const steps = [
     {
@@ -24,7 +36,7 @@ function CustomerForm() {
     {
       id: 1,
       name: "Možnosti okolia",
-      component: <Location />
+      component: <Surrounding setNextStep={setNextStep}/>
     }
   ]
 
@@ -33,7 +45,7 @@ function CustomerForm() {
       <h1>Customer form</h1>
       <div className='stepper'>
         {steps.map(x => 
-           <div key={x.id} className={`step ${step >= x.id ? "step-selected": ""}`}>
+           <div key={x.id} className={`step ${step === x.id ? "step-selected": ""}`}>
               <h4 >{x.name}</h4>
           </div>
         )}
