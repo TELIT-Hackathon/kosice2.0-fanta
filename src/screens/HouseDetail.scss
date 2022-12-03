@@ -12,6 +12,58 @@
 
     .main-content{
         padding: 2rem;
+
+        .thumbnail{
+            max-width: 100%;
+            margin-bottom: 2rem;
+            border-radius: 2rem;
+        }
+
+        .heading{
+            font-size: 1.4rem;
+            font-weight: 900;
+        }
+        .secondaryText{
+            font-size: 0.8rem;
+            opacity: 0.6;
+        }
+        .secondaryHeading{
+            font-size: 0.8rem;
+            font-weight: 900;
+        }
+        .firstSection{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+        .bedAndDiscount, .bed, .area,.flexDiv{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        .area{
+            margin-left: 1.5rem;
+        }
+        .facilities{
+            display: flex;
+            flex-direction: row;
+            margin: 1.5rem 0;
+
+            .facility{
+                margin-right: 1rem;
+                background-color: rgba($color: #56DDC5, $alpha: 0.2);
+                padding: 0.5rem 1.5rem;
+                font-size: 0.8rem;
+                border-radius: 5rem;
+            }
+        }
+    }
+
+    .mappp{
+        max-width: 100%;
+        border-radius: 1rem;
+        padding: 0;
     }
 }
 
