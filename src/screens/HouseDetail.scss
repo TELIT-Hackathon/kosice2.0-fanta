@@ -1,0 +1,24 @@
+.card{
+    width: 70vw;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+    border: none !important;
+    border-radius: 1rem !important;
+    display: flex !important;
+    flex-direction: row !important;
+
+    .main-content,.map{
+        max-width: 50%;
+    }
+
+    .main-content{
+        padding: 2rem;
+    }
+}
+
+.house-detail{
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+}
