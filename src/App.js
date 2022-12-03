@@ -22,6 +22,7 @@ const router = createBrowserRouter([
     path: "results",
     element: <HouseList data={mockupData.data} />,
   },
+  
 ]);
 
 function App() {
