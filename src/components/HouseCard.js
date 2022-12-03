@@ -8,10 +8,11 @@ import BedIcon from "@mui/icons-material/Bed";
 import StraightenIcon from "@mui/icons-material/Straighten";
 import { Container, Box } from "@mui/system";
 import GenericButton from "./GenericButton";
+import { Link } from "react-router-dom";
 
-function HouseCard({ data }) {
-  console.log(data);
+function HouseCard({ data}) {
   const {
+    id,
     thumbnail_url,
     street,
     location,
@@ -21,11 +22,13 @@ function HouseCard({ data }) {
     people_preference,
     monthly_fee,
   } = data;
+
   return (
     <Card
       sx={{
         width: 550,
-        boxShadow: 3,
+        boxShadow: 'rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px',
+        border: 'none',
         borderRadius: "16px",
         minHeight: 380,
         maxHeight: 500,
@@ -41,7 +44,7 @@ function HouseCard({ data }) {
         }}
       >
         <CardMedia
-          sx={{ borderRadius: "8px" }}
+          sx={{ borderRadius: "8px"}}
           component="img"
           height="200"
           image={thumbnail_url}
@@ -93,7 +96,9 @@ function HouseCard({ data }) {
               {monthly_fee}
               {" €"}
             </Typography>
-            <GenericButton text="viac" />
+            <Link to={`/HouseDetail/{id}`}>
+              <GenericButton text="viac" />
+            </Link>
           </Grid>
         </Grid>
       </CardContent>
