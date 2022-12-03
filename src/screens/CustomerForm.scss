@@ -11,7 +11,8 @@
         margin: auto;
         margin-bottom: 30px;
         display: flex;
-        max-width: 800px;
+        max-width: 600px;
+        padding: 15px;
         gap: 30px;
         text-align: center;
 
@@ -67,7 +68,7 @@
             background-color: #56DDC5;
             border: none;
             margin: auto;
-            width: 100%;
+            width: calc(100% - 30px);
             max-width: 600px;
             border-radius: 20px;
         }

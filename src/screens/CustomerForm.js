@@ -35,7 +35,7 @@ function CustomerForm() {
     },
     {
       id: 1,
-      name: "Možnosti okolia",
+      name: "Okolie",
       component: <Surrounding />
     },
     {
