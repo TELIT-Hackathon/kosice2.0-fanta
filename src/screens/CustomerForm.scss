@@ -18,8 +18,19 @@
         .step {
             flex: 1;
 
+            .step-bottom {
+                width: 100%;
+                height: 10px;
+                background-color: #D7D7D7;
+                border-radius: 5px;
+            }
             &.step-selected {
-                border-bottom: 8px solid #56DDC5;
+                color: #56DDC5;
+                .step-bottom{
+                    width: 100%;
+                    height: 10px;
+                    background-color: #56DDC5;
+                }
             }
         }
 
