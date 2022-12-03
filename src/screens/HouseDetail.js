@@ -5,7 +5,11 @@ import StraightenOutlinedIcon from '@mui/icons-material/StraightenOutlined';
 
 function HouseDetail({data}) {
     const {id} = useParams();
-    const houseData = data[id];
+
+    function filterById(jsonObject, id) {return jsonObject.filter(function(jsonObject) {return (jsonObject['id'] == id);})[0];}
+
+    const houseData = filterById(data, id);
+    console.log(houseData);
     const colorMain = '#56DDC5';
 
     return (

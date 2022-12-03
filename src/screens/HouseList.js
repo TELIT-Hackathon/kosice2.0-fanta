@@ -34,8 +34,9 @@ function HouseList() {
                     <span style={{ color: defaultHexColor }}>{data.length}</span> ponúk.
                 </Typography>
             </Grid>
-            {data.map((residence) => (
+            {data.map((residence, index) => (
                 <Grid
+                    key={index}
                     item
                     md={5}
                     xs={12}
@@ -43,7 +44,7 @@ function HouseList() {
                     justifyContent="center"
                     margin={1}
                 >
-                    <HouseCard data={residence} key={residence.id} />
+                <HouseCard data={residence} key={residence.index} />
                 </Grid>
             ))}
         </Grid>
