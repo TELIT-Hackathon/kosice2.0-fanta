@@ -1,10 +1,14 @@
-import React, { useState } from 'react';
+// import React, { useState } from 'react';
+import { useState, useEffect } from "react";
 import Location from '../components/CustomerForm/Location';
-
+import { db, getAccomadation } from '../firebase'
 import "./CustomerForm.scss"
 
 
 function CustomerForm() {
+
+
+
   const[step, setStep] = useState(0);
 
   const getStep = () => {
