@@ -6,6 +6,8 @@ import {
 
 
 import Navigation from "./components/Navigation";
+import CustomerForm from "./screens/CustomerForm";
+
 import Home from './screens/Home'
 
 
@@ -13,6 +15,10 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Home />,
+  },
+  {
+    path: "customer-form",
+    element: <CustomerForm />,
   },
 ]);
 

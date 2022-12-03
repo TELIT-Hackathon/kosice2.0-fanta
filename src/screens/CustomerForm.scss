@@ -1,0 +1,29 @@
+.customer-form {
+    .input{
+        border-radius: 20px;
+    }
+
+    .stepper {
+        margin: auto;
+        margin-bottom: 30px;
+        display: flex;
+        width: 800px;
+        gap: 30px;
+        text-align: center;
+        .step {
+            flex: 1;
+            &.step-selected {
+                border-bottom: 5px solid aqua;
+            }
+        }
+        
+    }
+
+    .form {
+        border: 2px solid grey;
+        padding: 30px;
+        border-radius: 10px;
+        margin: auto;
+        width: 800px;
+    }
+} 
