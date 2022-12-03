@@ -10,7 +10,7 @@ function HouseList({ data }) {
   const getData = () => {};
 
   return (
-    <Grid container justifyContent={"center"}>
+    <Grid container justifyContent={"center"} maxWidth="1366px" margin="auto">
       <Grid item xs={12}>
         <Typography paddingLeft={5} padding={2} variant={"h5"}>
           Našli sme{" "}
