@@ -4,11 +4,6 @@ import { Formik, Field, Form, ErrorMessage } from 'formik';
 
 const Surrounding = ({setNextStep}) => {
 
-  const handleNext = () => {
-    console.log("Next")
-    setNextStep()
-  }
-
   return (
     <Formik
       initialValues={{

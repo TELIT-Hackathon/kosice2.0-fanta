@@ -4,7 +4,6 @@ import HouseLocation from '../components/CustomerForm/HouseLocation';
 import Surrounding from '../components/CustomerForm/Surrounding';
 import Roommate from '../components/CustomerForm/Roommate';
 import "./CustomerForm.scss"
-import { Navigate } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 function CustomerForm() {
@@ -19,15 +18,13 @@ function CustomerForm() {
   }
 
   const setNextStep = (StepData) => {
-    console.log("🚀 ~ file: CustomerForm.js ~ line 18 ~ setNextStep ~ StepData", StepData)
     const newStep = step + 1
+    const newData = { ...data, ...StepData }
     if (newStep === 3) {
-      navigate("/results");
+      navigate("/results", { state: { filterList: newData } });
     }
-    setStep(step + 1);
-    setData(...data, ...StepData);
-    
-
+    setStep(newStep);
+    setData(newData);
   }
 
   const steps = [
@@ -44,7 +41,7 @@ function CustomerForm() {
     {
       id: 2,
       name: "Spolubývajúci",
-      component: <Roommate setNextStep={setNextStep} />
+      component: <Roommate />
     }
   ]
 

@@ -4,11 +4,6 @@ import { Formik, Field, Form, ErrorMessage } from 'formik';
 
 function HouseLocation({ setNextStep }) {
 
-  const handleNext = () => {
-    console.log("Next")
-    setNextStep()
-  }
-
 
   return (
     <Formik
@@ -35,7 +30,6 @@ function HouseLocation({ setNextStep }) {
       //   email: Yup.string().email('Invalid email address').required('Required'),
       // })}
       onSubmit={(values) => {
-        console.log(values);
         setNextStep(values)
       }}
     >
@@ -106,7 +100,7 @@ function HouseLocation({ setNextStep }) {
 
           </div>
         </div>
-        <button type="submit" onClick={handleNext} className="btn next btn-primary">Ďalej</button>
+        <button type="submit" className="btn next btn-primary">Ďalej</button>
         {/* <GenericButton text={"Ďalej"} type="submit" onClick={handleNext} ></GenericButton> */}
       </Form>
     </Formik>

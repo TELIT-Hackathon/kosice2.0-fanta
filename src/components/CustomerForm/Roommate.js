@@ -4,18 +4,13 @@ import { Formik, Field, Form } from 'formik';
 
 function Roommate({ setNextStep }) {
 
-  const handleNext = () => {
-    console.log("Next")
-    setNextStep()
-  }
-
-
   return (
     <Formik
       initialValues={{
         roommate: false,
-        type: '',
-
+        sex: '',
+        ageFrom: '',
+        ageTo: ''
       }}
 
       onSubmit={(values) => {
@@ -54,7 +49,7 @@ function Roommate({ setNextStep }) {
 
           </div>
         </div>
-        <button type="submit" onClick={handleNext} className="btn next btn-primary">Ďalej</button>
+        <button type="submit" className="btn next btn-primary">Ďalej</button>
       </Form>
     </Formik>
   );
