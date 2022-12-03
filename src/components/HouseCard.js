@@ -8,9 +8,10 @@ import BedIcon from "@mui/icons-material/Bed";
 import StraightenIcon from "@mui/icons-material/Straighten";
 import { Container, Box } from "@mui/system";
 import GenericButton from "./GenericButton";
-import { Link } from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 
 function HouseCard({ data}) {
+  const navigate = useNavigate();
   const {
     id,
     thumbnail_url,
@@ -22,6 +23,10 @@ function HouseCard({ data}) {
     people_preference,
     monthly_fee,
   } = data;
+
+  const onClick = ()=>{
+    navigate('/HouseDetail', {state: {data}});
+  }
 
   return (
     <Card
@@ -96,9 +101,7 @@ function HouseCard({ data}) {
               {monthly_fee}
               {" €"}
             </Typography>
-            <Link to={`/HouseDetail/{id}`}>
-              <GenericButton text="viac" />
-            </Link>
+              <GenericButton text="viac" onClick={onClick}/>
           </Grid>
         </Grid>
       </CardContent>

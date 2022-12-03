@@ -2,21 +2,27 @@ import { useParams } from "react-router-dom";
 import "./HouseDetail.scss"
 import BedOutlinedIcon from '@mui/icons-material/BedOutlined';
 import StraightenOutlinedIcon from '@mui/icons-material/StraightenOutlined';
+import { useLocation } from "react-router-dom";
+import { useEffect, useState } from "react";
 
-function HouseDetail({data}) {
-    const {id} = useParams();
+function HouseDetail() {
+    const location = useLocation();
+    const [houseData, setData] = useState(null);
 
-    function filterById(jsonObject, id) {return jsonObject.filter(function(jsonObject) {return (jsonObject['id'] == id);})[0];}
+    useEffect(()=>{
+      setData(location?.state?.data);
+    }, [])
 
-    const houseData = filterById(data, id);
-    console.log(houseData);
     const colorMain = '#56DDC5';
 
+    if (houseData === null){
+      return null;
+    }
     return (
       <div className="house-detail">
         <div className="card">
           <div className="main-content">
-            <img src={houseData.thumbnail_url} className="thumbnail"></img>
+          <img src={houseData.thumbnail_url} className="thumbnail"></img>
             <div className="firstSection">
               <div className="location">
                 <h3 className="heading">{houseData.street}</h3>

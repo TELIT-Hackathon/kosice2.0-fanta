@@ -22,11 +22,11 @@ const router = createBrowserRouter([
   },
   {
     path: "results",
-    element: <HouseList data={mockupData.data} />,
+    element: <HouseList />,
   },
   {
-    path: "HouseDetail/:id",
-    element: <HouseDetail data={mockupData.data} />,
+    path: "HouseDetail",
+    element: <HouseDetail />,
   },
 ]);
 
