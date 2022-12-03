@@ -4,11 +4,15 @@ import { useState, useEffect } from "react";
 import HouseCard from "../components/HouseCard";
 import { defaultHexColor } from "../globals";
 import { db, getAccomadation } from '../firebase'
+import {useLocation} from 'react-router-dom';
 
 function HouseList() {
+    const location = useLocation();
+    const [data, setData] = useState([]);
 
-    const [data, setData] = useState([])
     const getData = async () => {
+        const filter = location?.state?.filterList
+        console.log("🚀 ~ file: HouseList.js ~ line 15 ~ getData ~ filter", filter)
         const accomadation = await getAccomadation(db)
         console.log(accomadation)
         setData(accomadation)

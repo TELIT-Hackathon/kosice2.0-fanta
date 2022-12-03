@@ -4,7 +4,7 @@
 
         border: none !important;
         box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
-        border-radius: 10px;
+        border-radius: 20px;
     }
 
     .stepper {
@@ -19,7 +19,7 @@
             flex: 1;
 
             &.step-selected {
-                border-bottom: 5px solid aqua;
+                border-bottom: 8px solid #56DDC5;
             }
         }
 
@@ -49,10 +49,16 @@
 
         }
 
-        button {
+        button.next {
             position: relative;
             left: 50%;
             transform: translate(-50%, 0);
+            background-color: #56DDC5;
+            border: none;
+            margin: auto;
+            width: 100%;
+            max-width: 600px;
+            border-radius: 20px;
         }
     }
 
