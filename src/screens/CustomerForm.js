@@ -1,42 +1,47 @@
 // import React, { useState } from 'react';
-import { useState, useEffect } from "react";
-import Location from '../components/CustomerForm/Location';
+import { useState, cloneElement } from "react";
+import HouseLocation from '../components/CustomerForm/HouseLocation';
 import Surrounding from '../components/CustomerForm/Surrounding';
-
+import Roommate from '../components/CustomerForm/Roommate';
 import "./CustomerForm.scss"
-
+import { useNavigate } from "react-router-dom";
 
 function CustomerForm() {
+  const [step, setStep] = useState(0);
+  const [data, setData] = useState({});
+  const navigate = useNavigate();
 
-
-
-  const[step, setStep] = useState(0);
-  const[data, setData] = useState({});
 
   const getStep = () => {
-    return steps.find(x => x.id === step)?.component;
+    const stepComponent = steps.find(x => x.id === step)?.component
+    return cloneElement(stepComponent, { setNextStep: setNextStep });
   }
 
   const setNextStep = (StepData) => {
-    setStep(step + 1);
-    setData(...data, ...StepData)
-
+    const newStep = step + 1
+    const newData = { ...data, ...StepData }
+    if (newStep === 3) {
+      navigate("/results", { state: { filterList: newData } });
+    }
+    setStep(newStep);
+    setData(newData);
   }
-
-  // const creteFilter = () => {
-
-  // }
 
   const steps = [
     {
       id: 0,
       name: "Lokácia",
-      component: <Location setNextStep={setNextStep}/>
+      component: <HouseLocation />
     },
     {
       id: 1,
       name: "Možnosti okolia",
-      component: <Surrounding setNextStep={setNextStep}/>
+      component: <Surrounding />
+    },
+    {
+      id: 2,
+      name: "Spolubývajúci",
+      component: <Roommate />
     }
   ]
 
@@ -44,14 +49,14 @@ function CustomerForm() {
     <div className="customer-form">
       <h1>Customer form</h1>
       <div className='stepper'>
-        {steps.map(x => 
-           <div key={x.id} className={`step ${step === x.id ? "step-selected": ""}`}>
-              <h4 >{x.name}</h4>
+        {steps.map(x =>
+          <div key={x.id} className={`step ${step === x.id ? "step-selected" : ""}`}>
+            <h4 >{x.name}</h4>
           </div>
         )}
       </div>
       {getStep()}
-      
+
 
     </div>
   );

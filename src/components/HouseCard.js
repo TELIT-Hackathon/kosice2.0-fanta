@@ -10,7 +10,6 @@ import { Container, Box } from "@mui/system";
 import GenericButton from "./GenericButton";
 
 function HouseCard({ data }) {
-  console.log(data);
   const {
     thumbnail_url,
     street,

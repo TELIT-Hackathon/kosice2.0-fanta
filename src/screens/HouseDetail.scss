@@ -1,0 +1,76 @@
+.card{
+    width: 70vw;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+    border: none !important;
+    border-radius: 1rem !important;
+    display: flex !important;
+    flex-direction: row !important;
+
+    .main-content,.map{
+        max-width: 50%;
+    }
+
+    .main-content{
+        padding: 2rem;
+
+        .thumbnail{
+            max-width: 100%;
+            margin-bottom: 2rem;
+            border-radius: 2rem;
+        }
+
+        .heading{
+            font-size: 1.4rem;
+            font-weight: 900;
+        }
+        .secondaryText{
+            font-size: 0.8rem;
+            opacity: 0.6;
+        }
+        .secondaryHeading{
+            font-size: 0.8rem;
+            font-weight: 900;
+        }
+        .firstSection{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+        .bedAndDiscount, .bed, .area,.flexDiv{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        .area{
+            margin-left: 1.5rem;
+        }
+        .facilities{
+            display: flex;
+            flex-direction: row;
+            margin: 1.5rem 0;
+
+            .facility{
+                margin-right: 1rem;
+                background-color: rgba($color: #56DDC5, $alpha: 0.2);
+                padding: 0.5rem 1.5rem;
+                font-size: 0.8rem;
+                border-radius: 5rem;
+            }
+        }
+    }
+
+    .mappp{
+        max-width: 100%;
+        border-radius: 1rem;
+        padding: 0;
+    }
+}
+
+.house-detail{
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+}

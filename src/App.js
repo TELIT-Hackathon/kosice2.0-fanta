@@ -6,8 +6,10 @@ import CustomerForm from "./screens/CustomerForm";
 
 import Home from "./screens/Home";
 import HouseList from "./screens/HouseList";
+import HouseDetail from "./screens/HouseDetail";
 
 import { Firestore } from "./firebase";
+
 import mockupData from "./mockup_data.json";
 const router = createBrowserRouter([
   {
@@ -22,7 +24,10 @@ const router = createBrowserRouter([
     path: "results",
     element: <HouseList data={mockupData.data} />,
   },
-  
+  {
+    path: "HouseDetail/:id",
+    element: <HouseDetail data={mockupData.data} />,
+  },
 ]);
 
 function App() {
