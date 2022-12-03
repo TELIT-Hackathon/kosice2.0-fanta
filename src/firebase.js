@@ -21,15 +21,9 @@ export async function getAccomadation(db) {
   const citiesCol = collection(db, 'accomadation');
   const citySnapshot = await getDocs(citiesCol);
   const cityList = citySnapshot.docs.map(doc => {
-    console.log("DOC",doc, doc._key, doc.id)
-
     const id = doc.id
     const data = doc.data()
-    
-    return {
-      id, ...data
-    };
-    
+    return {id, ...data};  
   })
     
   return cityList;

@@ -50,8 +50,9 @@ function CustomerForm() {
       <h1>Customer form</h1>
       <div className='stepper'>
         {steps.map(x =>
-          <div key={x.id} className={`step ${step === x.id ? "step-selected" : ""}`}>
+          <div key={x.id} className={`step ${step >= x.id ? "step-selected" : ""}`}>
             <h4 >{x.name}</h4>
+            <div className="step-bottom"></div>
           </div>
         )}
       </div>
