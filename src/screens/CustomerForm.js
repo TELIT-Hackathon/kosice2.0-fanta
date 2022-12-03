@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+// import React, { useState } from 'react';
+import { useState, useEffect } from "react";
 import Location from '../components/CustomerForm/Location';
 import Surrounding from '../components/CustomerForm/Surrounding';
 
@@ -6,6 +7,9 @@ import "./CustomerForm.scss"
 
 
 function CustomerForm() {
+
+
+
   const[step, setStep] = useState(0);
   const[data, setData] = useState({});
 
