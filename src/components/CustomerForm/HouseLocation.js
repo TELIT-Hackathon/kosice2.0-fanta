@@ -2,6 +2,32 @@ import React from 'react';
 import { Formik, Field, Form } from 'formik';
 import * as Yup from 'yup';
 
+const locations = [
+  "Košice",
+  "Košice I",
+  "Košice II",
+  "Košice III",
+  "Košice IV",
+  "Košice I - Džungľa",
+  "Košice I - Kavečany",
+  "Košice I - Sever",
+  "Košice I - Sídlisko Ťahanovce",
+  "Košice I - Staré Mesto",
+  "Košice I - Ťahanovce",
+  "Košice II - Lorinčík",
+  "Košice II - Luník IX",
+  "Košice II - Myslava",
+  "Košice II - Pereš",
+  "Košice II - Poľov",
+  "Košice II - Šaca",
+  "Košice II - Sídlisko KVP",
+  "Košice II - Západ",
+  "Košice III - Dargovských Hrdinov",
+  "Košice III - Košická Nová Ves",
+  "Košice IV - Barca"
+]
+
+
 function HouseLocation({ setNextStep }) {
 
   const schema = Yup.object().shape({
@@ -57,9 +83,7 @@ function HouseLocation({ setNextStep }) {
                 <div className='col'>
                   <Field className={`form-control form-select input-border ${errors.location ? "is-invalid" : ""}`} name="location" as="select" placeholder="Lokalita" >
                     <option disabled value="" label="Lokalita"></option>
-                    <option value="red">Red</option>
-                    <option value="green">Green</option>
-                    <option value="blue">Blue</option>
+                    {locations.map((x,index) => (<option key={index} value={x}>{x}</option>))}
                   </Field>
                   <div className="invalid-feedback">{errors.location}</div>
                 </div>
