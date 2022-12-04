@@ -9,7 +9,6 @@ import "./RoommateCard.scss";
 function RoommateCard({data}){
   const colorMain = '#56DDC5';
 
-  console.log(data);
   const {
     age,
     description,

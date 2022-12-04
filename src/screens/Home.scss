@@ -28,6 +28,10 @@
             font-size: 1rem;
             display: flex;
             flex-direction: column;
+            text-align: right;
+            p {
+                margin-bottom: 1px;
+            }
 
             span{
                 font-weight: 400;
@@ -37,6 +41,8 @@
             }
 
             .profileSettings{
+                background-color: #FFFFFF;
+                border: none;
                 display: flex;
                 align-items:center;
                 align-self: flex-end;

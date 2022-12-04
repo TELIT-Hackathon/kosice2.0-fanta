@@ -9,7 +9,6 @@ function Home() {
 
   const user = useFirebaseAuth();
 
-  console.log(user)
   getUserData(db, user?.uid)
 
 
@@ -18,12 +17,12 @@ function Home() {
       <div className="content">
         {user ?
           <div className="user">
-            <span>pouzivatel</span>
+            {/* <span>pouzivatel</span> */}
             <p>{user.email}</p>
-            <div className="profileSettings" onClick={signOut}>
+            <button className="profileSettings" onClick={signOut}>
               <SettingsIcon></SettingsIcon>
-              <p>Nastavenia profilu</p>
-            </div>
+              Odhlásiť sa
+            </button>
           </div>
           :
           <div>
@@ -48,7 +47,7 @@ function Home() {
                 <h4>Vyhladat ludi</h4><br></br>
                 <p>complete quizes assigned to you by your teachers</p>
               </div>
-              <Link to="customer-form" className="arrow">
+              <Link to="roommates" className="arrow">
                 <ArrowForwardIcon></ArrowForwardIcon>
               </Link>
             </div>
