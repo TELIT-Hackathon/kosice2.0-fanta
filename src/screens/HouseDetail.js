@@ -49,7 +49,7 @@ function HouseDetail() {
                 <p>{houseData.area}</p>
               </div>
             </div>
-            <p>{houseData.people_preference}</p>
+            <GenericButton text="LIKE" className="like"></GenericButton>
           </div>
           <p className="secondaryHeading Moznosti">Možnosti v okolí</p>
           <div className="facilities">
