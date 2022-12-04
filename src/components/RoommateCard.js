@@ -3,6 +3,7 @@ import SmokingRoomsIcon from '@mui/icons-material/SmokingRooms';
 import PetsIcon from '@mui/icons-material/Pets';
 import ChildFriendlyIcon from '@mui/icons-material/ChildFriendly';
 
+import GenericButton from "./GenericButton";
 import "./RoommateCard.scss";
 
 function RoommateCard(){
@@ -26,8 +27,11 @@ function RoommateCard(){
           <p>YES</p>
         </div>
       </div>
-      <p>OBLUBENE NEHNUTELNOSTI</p>
+      <p className='bold'>OBLUBENE NEHNUTELNOSTI</p>
       <p>Adresa 12, Kosice</p>
+      <div className="center">
+        <GenericButton text="Kontaktuj"></GenericButton>
+      </div>
     </div>
   );
 }
