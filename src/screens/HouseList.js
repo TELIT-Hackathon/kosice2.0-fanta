@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import HouseCard from "../components/HouseCard";
 import { defaultHexColor } from "../globals";
 import { db, getAccomadation } from '../firebase'
+import { filterData } from "../helper";
 // import { useLocation } from 'react-router-dom';
 
 function HouseList() {
@@ -18,6 +19,8 @@ function HouseList() {
         // console.log("🚀 ~ file: HouseList.js ~ line 15 ~ getData ~ filter", filter)
         try{
             const accomadation = await getAccomadation(db)
+            const filterData = filterData(accomadation, {})
+            const otherData = accomadation.filter(el => el.some(x => x.id !== el.id))
             console.log(accomadation)
             setData(accomadation)
             setLoading(false)

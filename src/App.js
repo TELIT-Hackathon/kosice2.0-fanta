@@ -10,6 +10,7 @@ import HouseList from "./screens/HouseList";
 import HouseDetail from "./screens/HouseDetail";
 
 import { FirebaseAuthProvider, useFirebaseAuth } from "./FirebaseAuthContext";
+import { filterData } from "./helper";
 
 
 const router = createBrowserRouter([
@@ -43,6 +44,7 @@ const router = createBrowserRouter([
 
 function App() {
 
+  filterData();
   return (
     <div className="App">
       <FirebaseAuthProvider>
