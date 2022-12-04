@@ -8,6 +8,8 @@ import RegisterComponent from "./screens/Register";
 import Home from "./screens/Home";
 import HouseList from "./screens/HouseList";
 import HouseDetail from "./screens/HouseDetail";
+import RoommateList from "./screens/RoommateList";
+
 
 import { FirebaseAuthProvider, useFirebaseAuth } from "./FirebaseAuthContext";
 import { filterData } from "./helper";
@@ -34,12 +36,15 @@ const router = createBrowserRouter([
       element: <HouseDetail />,
     },
     {
+      path: "Roommates",
+      element: <RoommateList />,
+    },
+    {
       path: "Register",
       element: <RegisterComponent />,
     }]
 
   }
-  ,
 ]);
 
 function App() {
