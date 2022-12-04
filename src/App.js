@@ -11,6 +11,7 @@ import HouseDetail from "./screens/HouseDetail";
 import { Firestore } from "./firebase";
 
 import mockupData from "./mockup_data.json";
+import RegisterComponent from "./screens/Register";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
   {
     path: "HouseDetail",
     element: <HouseDetail />,
+  },
+  {
+    path: "Register",
+    element: <RegisterComponent />,
   },
 ]);
 
