@@ -1,17 +1,18 @@
 // import React, { useState } from 'react';
 import { useState, cloneElement } from "react";
 import HouseLocation from '../components/CustomerForm/HouseLocation';
-import Surrounding from '../components/CustomerForm/Surrounding';
 import Roommate from '../components/CustomerForm/Roommate';
 import "./CustomerForm.scss"
 import { useNavigate } from "react-router-dom";
 import Profile from "../components/CustomerForm/Profile";
+import { useFirebaseAuth } from '../FirebaseAuthContext'
+
 
 function CustomerForm() {
   const [step, setStep] = useState(0);
   const [data, setData] = useState({});
   const navigate = useNavigate();
-
+  const user = useFirebaseAuth();
 
   const getStep = () => {
     const stepComponent = steps.find(x => x.id === step)?.component
@@ -19,6 +20,8 @@ function CustomerForm() {
   }
 
   const saveUser = (userData) => {
+
+    console.log(user)
     console.log("Save user data", userData);
     navigate("/");
   }
@@ -27,7 +30,7 @@ function CustomerForm() {
     // let list = Object.entries(StepData).map(([_, v]) => { return { key: _, value: v } }).filter(x => x.value !== "")
 
     const newStep = step + 1
-    const newData = {...data, ...StepData}
+    const newData = { ...data, ...StepData }
     if (newStep === 3) {
       saveUser(newData)
     }
@@ -46,7 +49,7 @@ function CustomerForm() {
       name: "Lokácia",
       component: <HouseLocation />
     },
-    
+
     {
       id: 2,
       name: "Spolubývajúci",

@@ -1,50 +1,63 @@
-import React from "react";
+import React, { Children } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import Navigation from "./components/Navigation";
 import CustomerForm from "./screens/CustomerForm";
 
+import RegisterComponent from "./screens/Register";
 import Home from "./screens/Home";
 import HouseList from "./screens/HouseList";
 import HouseDetail from "./screens/HouseDetail";
-import Landing from "./screens/Landing";
 import RoommateList from "./screens/RoommateList";
 
-import { Firestore } from "./firebase";
 
-import mockupData from "./mockup_data.json";
+import { FirebaseAuthProvider, useFirebaseAuth } from "./FirebaseAuthContext";
+import { filterData } from "./helper";
+
+
 const router = createBrowserRouter([
   {
-    path: "/",
-    element: <Landing />,
-  },
-  {
-    path: "/home",
-    element: <Home />,
-  },
-  {
-    path: "customer-form",
-    element: <CustomerForm />,
-  },
-  {
-    path: "results",
-    element: <HouseList />,
-  },
-  {
-    path: "HouseDetail",
-    element: <HouseDetail />,
-  },
-  {
-    path: "Roommates",
-    element: <RoommateList />,
-  },
+    path: "",
+    element: <Navigation />,
+    children: [{
+      path: "/",
+      element: <Home />,
+    },
+    {
+      path: "customer-form",
+      element: <CustomerForm />,
+    },
+    {
+      path: "results",
+      element: <HouseList />,
+    },
+    {
+      path: "HouseDetail",
+      element: <HouseDetail />,
+    },
+    {
+      path: "Roommates",
+      element: <RoommateList />,
+    },
+    {
+      path: "Register",
+      element: <RegisterComponent />,
+    }]
+
+  }
 ]);
 
 function App() {
+
+  filterData();
   return (
     <div className="App">
-      <Navigation />
-      <RouterProvider router={router} />
+      <FirebaseAuthProvider>
+
+        <RouterProvider router={router} >
+          <Navigation />
+        </RouterProvider>
+      </FirebaseAuthProvider>
     </div>
   );
 }
