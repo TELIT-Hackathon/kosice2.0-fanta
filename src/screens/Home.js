@@ -39,13 +39,13 @@ function Home() {
         <div className="flex">
           <div className="About">
             <h1>About app</h1><br></br>
-            <p>Technológie virtuálnej reality (VR) vedia používateľom ponúknuť rôzne zážitky a skúsenosti. Jedným z tých pozoruhodnejších a významnejších je ponorenie do histórie. Vo VR môže človek preskúmať historické prostredie a dozvedieť sa o ňom jedinečným dynamickým spôsobom.</p>
+                      <p>Táto aplikácia je určená na vyhľadávanie nehnuteľností. Vyhľadajte si byt sami, alebo si pomocou tejto aplikácie nájdite spolubývajúceho.</p>
           </div>
           <div className="cols">
             <div className="col">
               <div>
                 <h4>Vyhladat ludi</h4><br></br>
-                <p>complete quizes assigned to you by your teachers</p>
+                <p>Táto aplikácia vám pomôže nájsť spolubývajúceho podľa vašich preferencií</p>
               </div>
               <Link to="roommates" className="arrow">
                 <ArrowForwardIcon></ArrowForwardIcon>
@@ -54,7 +54,7 @@ function Home() {
             <div className="col">
               <div>
                 <h4>Vyhladat nehnutelnosti</h4><br></br>
-                <p>complete quizes assigned to you by your teachers</p>
+                <p>Vyhľadajte nehnuteľnosť podľa svojich preferencií</p>
               </div>
               <Link to="results" className="arrow">
                 <ArrowForwardIcon></ArrowForwardIcon>
