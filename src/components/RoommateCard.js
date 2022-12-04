@@ -6,12 +6,22 @@ import ChildFriendlyIcon from '@mui/icons-material/ChildFriendly';
 import GenericButton from "./GenericButton";
 import "./RoommateCard.scss";
 
-function RoommateCard(){
+function RoommateCard({data}){
   const colorMain = '#56DDC5';
+
+  console.log(data);
+  const {
+    age,
+    description,
+    firstName,
+    lastName,
+    location,
+    sex
+  } = data;
 
   return (
     <div className="RoommateCard">
-      <h3>Michal 21</h3>
+      <h3>{firstName}</h3>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse vulputate, </p>
       <div className='flexBoxContainer'>
         <div>
