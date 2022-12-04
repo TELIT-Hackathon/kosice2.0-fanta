@@ -12,10 +12,10 @@ function HouseList() {
     const [loading, setLoading] = useState(true);
 
     const getData = async () => {
-        const filterList = location?.state?.filterList;
-        let filter = Object.fromEntries(Object.entries(filterList).filter(([_, v]) => v != null || v !== ''));
+        // const filterList = location?.state?.filterList;
+        // let filter = Object.fromEntries(Object.entries(filterList).filter(([_, v]) => v != null || v !== ''));
 
-        console.log("🚀 ~ file: HouseList.js ~ line 15 ~ getData ~ filter", filter)
+        // console.log("🚀 ~ file: HouseList.js ~ line 15 ~ getData ~ filter", filter)
         try{
             const accomadation = await getAccomadation(db)
             console.log(accomadation)
