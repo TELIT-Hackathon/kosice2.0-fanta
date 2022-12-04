@@ -13,7 +13,6 @@ const LoginComponent = () => {
         // Create a new user with email and password using firebase
         signInWithEmailAndPassword(auth, data.email, data.password)
             .then((res) => {
-                console.log(res.user)
                 navigate("/")
             })
             .catch(err => console.log(err, err.message))

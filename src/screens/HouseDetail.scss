@@ -1,16 +1,16 @@
-.house-detail{
+.house-detail {
     display: flex;
     flex-direction: column;
     gap: 7px;
 
-    .Back{
+    .Back {
         text-decoration: none;
 
     }
 
 }
 
-.card{
+.card {
     width: 70vw;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
     border: none !important;
@@ -18,55 +18,64 @@
     display: flex !important;
     flex-direction: row !important;
 
-    .main-content,.map{
+    .main-content,
+    .map {
         max-width: 50%;
     }
 
-    .like{
+    .bedAndDiscount .like.isLike {
         background-color: gold !important;
     }
 
-    .main-content{
+    .main-content {
         padding: 2rem;
 
-        .thumbnail{
+        .thumbnail {
             max-width: 100%;
             margin-bottom: 2rem;
             border-radius: 2rem;
         }
 
-        .heading{
+        .heading {
             font-size: 1.4rem;
             font-weight: 900;
         }
-        .secondaryText{
+
+        .secondaryText {
             font-size: 0.8rem;
             opacity: 0.6;
         }
-        .secondaryHeading{
+
+        .secondaryHeading {
             font-size: 0.8rem;
             font-weight: 900;
         }
-        .firstSection{
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-        }
-        .bedAndDiscount, .bed, .area,.flexDiv{
+
+        .firstSection {
             display: flex;
             flex-direction: row;
             justify-content: space-between;
         }
 
-        .area{
+        .bedAndDiscount,
+        .bed,
+        .area,
+        .flexDiv {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        .area {
             margin-left: 1.5rem;
         }
-        .facilities{
+
+        .facilities {
             display: flex;
             flex-direction: row;
             margin: 1.5rem 0;
 
-            .facility{
+            .facility {
                 margin-right: 1rem;
                 background-color: rgba($color: #56DDC5, $alpha: 0.2);
                 padding: 0.5rem 1.5rem;
@@ -76,14 +85,14 @@
         }
     }
 
-    .mappp{
+    .mappp {
         max-width: 100%;
         border-radius: 1rem;
         padding: 0;
     }
 }
 
-.house-detail{
+.house-detail {
     width: 100vw;
     display: flex;
     justify-content: center;

@@ -25,7 +25,7 @@ export async function getAccomadation(db) {
   const citySnapshot = await getDocs(citiesCol);
   const cityList = citySnapshot.docs.map(doc => {
     const id = doc.id
-    const data = doc.data()
+    const data = doc.data().list
     return { id, ...data };
   })
 
@@ -47,6 +47,21 @@ export async function getUserData(db, uid) {
   if(cityList){
     delete cityList.id
   }
+  return cityList;
+}
+
+export async function setLike(db, id, data) {
+  await setDoc(doc(db, "likes", id), data);
+}
+
+export async function getLikes(db, uid) {
+  const citiesCol = collection(db, 'likes');
+  const citySnapshot = await getDocs(citiesCol);
+  let cityList = citySnapshot.docs.map(doc => {
+    const uid = doc.id
+    const data = doc.data()
+    return { uid, ...data };
+  })
   return cityList;
 }
 

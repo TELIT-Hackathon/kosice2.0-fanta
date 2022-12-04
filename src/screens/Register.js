@@ -13,7 +13,6 @@ const RegisterComponent = () => {
         // Create a new user with email and password using firebase
         createUserWithEmailAndPassword(auth, data.email, data.password)
             .then((res) => {
-                console.log(res.user)
                 navigate("/customer-form")
             })
             .catch(err => console.log(err, err.message))
