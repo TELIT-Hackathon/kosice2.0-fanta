@@ -25,7 +25,7 @@ export async function getAccomadation(db) {
   const citySnapshot = await getDocs(citiesCol);
   const cityList = citySnapshot.docs.map(doc => {
     const id = doc.id
-    const data = doc.data().list
+    const data = doc.data()
     return { id, ...data };
   })
 
