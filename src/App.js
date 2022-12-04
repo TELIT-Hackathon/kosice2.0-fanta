@@ -8,6 +8,7 @@ import Home from "./screens/Home";
 import HouseList from "./screens/HouseList";
 import HouseDetail from "./screens/HouseDetail";
 import Landing from "./screens/Landing";
+import RoommateList from "./screens/RoommateList";
 
 import { Firestore } from "./firebase";
 
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
   {
     path: "HouseDetail",
     element: <HouseDetail />,
+  },
+  {
+    path: "Roommates",
+    element: <RoommateList />,
   },
 ]);
 

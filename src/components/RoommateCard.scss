@@ -1,0 +1,22 @@
+
+.RoommateCard{
+    max-width: 15vw;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+    border-radius: 1.5rem;
+    padding: 1.5rem;
+
+    h3{
+        font-weight: 900;
+        font-size: 1.5rem;
+    }
+    p{
+        font-size: 0.7rem;
+        opacity: 0.6;
+    }
+    .flexBoxContainer{
+        display: flex;
+        flex-direction: row;
+        width: 60%;
+        justify-content: space-between;
+    }
+}
