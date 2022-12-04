@@ -3,7 +3,7 @@ import { Formik, Field, Form } from 'formik';
 import * as Yup from 'yup';
 
 function Profile({ setNextStep }) {
-
+  
   const schema = Yup.object().shape({
     firstName: Yup.string()
       .required('Povinné pole'),

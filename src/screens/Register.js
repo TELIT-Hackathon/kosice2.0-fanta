@@ -2,15 +2,18 @@ import { auth } from '../firebase'
 import { createUserWithEmailAndPassword } from 'firebase/auth'
 import React, { useEffect, useState } from "react";
 import { Formik, Field, Form, ErrorMessage } from 'formik';
+import { useNavigate } from "react-router-dom";
+
 
 const RegisterComponent = () => {
-
+    const navigate = useNavigate()
 
     const register = (data) => {
         // Create a new user with email and password using firebase
         createUserWithEmailAndPassword(auth, data.email, data.password)
             .then((res) => {
                 console.log(res.user)
+                navigate("/customer-form")
             })
             .catch(err => console.log(err,err.message))
     }

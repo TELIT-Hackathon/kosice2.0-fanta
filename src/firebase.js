@@ -1,7 +1,7 @@
 
 import { initializeApp } from 'firebase/app';
 import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
-import {getAuth} from 'firebase/auth';
+import { getAuth } from 'firebase/auth';
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_API_KEY,
@@ -24,10 +24,18 @@ export async function getAccomadation(db) {
   const cityList = citySnapshot.docs.map(doc => {
     const id = doc.id
     const data = doc.data()
-    return {id, ...data};  
+    return { id, ...data };
   })
-     
+
   return cityList;
 }
+
+auth.onAuthStateChanged((user) => {
+  if (user) {
+    console.log("authenticated", user);
+  } else {
+    console.log("signed out");
+  }
+});
 
 

@@ -1,18 +1,18 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import Navigation from "./components/Navigation";
 import CustomerForm from "./screens/CustomerForm";
 
+import RegisterComponent from "./screens/Register";
 import Home from "./screens/Home";
 import HouseList from "./screens/HouseList";
 import HouseDetail from "./screens/HouseDetail";
 import Landing from "./screens/Landing";
 
-import { Firestore } from "./firebase";
+import { FirebaseAuthProvider, useFirebaseAuth } from "./FirebaseAuthContext";
 
-import mockupData from "./mockup_data.json";
-import RegisterComponent from "./screens/Register";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -41,10 +41,15 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
+
+
+
   return (
     <div className="App">
-      <Navigation />
-      <RouterProvider router={router} />
+      <FirebaseAuthProvider>
+        <Navigation />
+        <RouterProvider router={router} />
+      </FirebaseAuthProvider>
     </div>
   );
 }
