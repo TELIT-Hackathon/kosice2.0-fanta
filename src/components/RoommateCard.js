@@ -21,8 +21,8 @@ function RoommateCard({data}){
 
   return (
     <div className="RoommateCard">
-      <h3>{firstName}</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse vulputate, </p>
+      <h3>{firstName} {lastName}, {age}</h3>
+      <p>{description}</p>
       <div className='flexBoxContainer'>
         <div>
           <SmokingRoomsIcon sx={{color:colorMain}}></SmokingRoomsIcon>
