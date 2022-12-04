@@ -7,6 +7,7 @@ import CustomerForm from "./screens/CustomerForm";
 import Home from "./screens/Home";
 import HouseList from "./screens/HouseList";
 import HouseDetail from "./screens/HouseDetail";
+import Landing from "./screens/Landing";
 
 import { Firestore } from "./firebase";
 
@@ -15,6 +16,10 @@ import RegisterComponent from "./screens/Register";
 const router = createBrowserRouter([
   {
     path: "/",
+    element: <Landing />,
+  },
+  {
+    path: "/home",
     element: <Home />,
   },
   {

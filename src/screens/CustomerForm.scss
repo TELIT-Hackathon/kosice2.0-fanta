@@ -5,6 +5,9 @@
         border: none !important;
         box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
         border-radius: 20px;
+        &:focus {
+            box-shadow: none;
+        }
     }
 
     .stepper {
@@ -55,10 +58,11 @@
                     gap: 15px;
                     margin-bottom: 20px;
                 }
+
+                .form-checkbox input{
+                    margin-right: 10px;
+                }
             }
-
-
-
         }
 
         button.next {

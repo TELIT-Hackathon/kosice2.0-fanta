@@ -1,10 +1,10 @@
 // import React, { useState } from 'react';
 import { useState, cloneElement } from "react";
 import HouseLocation from '../components/CustomerForm/HouseLocation';
-import Surrounding from '../components/CustomerForm/Surrounding';
 import Roommate from '../components/CustomerForm/Roommate';
 import "./CustomerForm.scss"
 import { useNavigate } from "react-router-dom";
+import Profile from "../components/CustomerForm/Profile";
 
 function CustomerForm() {
   const [step, setStep] = useState(0);
@@ -17,11 +17,18 @@ function CustomerForm() {
     return cloneElement(stepComponent, { setNextStep: setNextStep });
   }
 
+  const saveUser = (userData) => {
+    console.log("Save user data", userData);
+    navigate("/");
+  }
+
   const setNextStep = (StepData) => {
+    // let list = Object.entries(StepData).map(([_, v]) => { return { key: _, value: v } }).filter(x => x.value !== "")
+
     const newStep = step + 1
-    const newData = { ...data, ...StepData }
+    const newData = {...data, ...StepData}
     if (newStep === 3) {
-      navigate("/results", { state: { filterList: newData } });
+      saveUser(newData)
     }
     setStep(newStep);
     setData(newData);
@@ -30,14 +37,15 @@ function CustomerForm() {
   const steps = [
     {
       id: 0,
-      name: "Lokácia",
-      component: <HouseLocation />
+      name: "Profil",
+      component: <Profile />
     },
     {
       id: 1,
-      name: "Okolie",
-      component: <Surrounding />
+      name: "Lokácia",
+      component: <HouseLocation />
     },
+    
     {
       id: 2,
       name: "Spolubývajúci",
@@ -46,8 +54,7 @@ function CustomerForm() {
   ]
 
   return (
-    <div className="customer-form">
-      <h1>Customer form</h1>
+    <div className="customer-form mb-5">
       <div className='stepper'>
         {steps.map(x =>
           <div key={x.id} className={`step ${step >= x.id ? "step-selected" : ""}`}>
