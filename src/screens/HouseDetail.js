@@ -3,6 +3,10 @@ import BedOutlinedIcon from '@mui/icons-material/BedOutlined';
 import StraightenOutlinedIcon from '@mui/icons-material/StraightenOutlined';
 import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import GenericButton from "../components/GenericButton";
+
+
 
 function HouseDetail() {
   const location = useLocation();
@@ -21,6 +25,9 @@ function HouseDetail() {
   }
   return (
     <div className="house-detail">
+      <Link className="Back" to="/results">
+        <GenericButton text="Spat"></GenericButton>
+      </Link>
       <div className="card">
         <div className="main-content">
           <img src={houseData.thumbnail_url} className="thumbnail" alt="thumbnail"></img>
