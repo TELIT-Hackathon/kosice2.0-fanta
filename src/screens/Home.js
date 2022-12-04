@@ -2,12 +2,15 @@ import { Link } from "react-router-dom";
 import "./Home.scss"
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { useFirebaseAuth } from "../FirebaseAuthContext"
+import { db, getUserData } from "../firebase"
 
 function Home() {
 
   const user = useFirebaseAuth();
 
   console.log(user)
+  getUserData(db, user?.uid)
+
 
   return (
     <div className="home">

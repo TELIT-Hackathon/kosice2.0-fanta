@@ -1,7 +1,8 @@
 
 import { initializeApp } from 'firebase/app';
-import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
+import { getFirestore as LiteFirestore, collection, getDocs } from 'firebase/firestore/lite';
 import { getAuth } from 'firebase/auth';
+import { getFirestore, doc, setDoc } from "firebase/firestore"; 
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_API_KEY,
@@ -15,7 +16,8 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
-export const db = getFirestore(app);
+export const db = LiteFirestore(app);
+export const firestore = getFirestore(app);
 
 // Get a list of cities from your database
 export async function getAccomadation(db) {
@@ -31,13 +33,19 @@ export async function getAccomadation(db) {
 }
 
 export async function setUserData(db, id, data) {
-  console.log(id, data)
-  // const usersCol = collection(db, 'users');
-  // set(ref(db, 'users/' + id), data);
+  await setDoc(doc(db, "users", id), data);
 }
 
 export async function getUserData(db, id) {
-  
+  const citiesCol = collection(db, 'users');
+  const citySnapshot = await getDocs(citiesCol);
+  const cityList = citySnapshot.docs.map(doc => {
+    const id = doc.id
+    const data = doc.data()
+    return { id, ...data };
+  })
+
+  return cityList;
 }
 
 // Get a list of cities from your database

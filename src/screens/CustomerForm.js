@@ -6,7 +6,7 @@ import "./CustomerForm.scss"
 import { useNavigate } from "react-router-dom";
 import Profile from "../components/CustomerForm/Profile";
 import { useFirebaseAuth } from '../FirebaseAuthContext'
-import { db, setUserData } from "../firebase";
+import { firestore, setUserData } from "../firebase";
 
 
 function CustomerForm() {
@@ -22,7 +22,7 @@ function CustomerForm() {
 
   const saveUser = (userData) => {
     //TODO: Remove other
-    setUserData(db, user.uid, userData)
+    setUserData(firestore, user.uid, userData)
     navigate("/");
   }
 

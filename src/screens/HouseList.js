@@ -3,7 +3,7 @@ import { Grid, Typography, CircularProgress } from "@mui/material";
 import { useState, useEffect } from "react";
 import HouseCard from "../components/HouseCard";
 import { defaultHexColor } from "../globals";
-import { db, getAccomadation, getUserData } from '../firebase'
+import { db, firestore, getAccomadation, getUserData, getUsers, setUserData } from '../firebase'
 import { filterData } from "../helper";
 // import { useLocation } from 'react-router-dom';
 import { useFirebaseAuth } from '../FirebaseAuthContext';
@@ -15,10 +15,20 @@ function HouseList() {
     const [allData, setAllData] = useState([]);
     const [loading, setLoading] = useState(true);
 
+    const getU = async() => {
+        const u = await getUsers(db);
+        console.log("🚀 ~ file: HouseList.js ~ line 20 ~ getU ~ u", u)
+    }
+
+    const getUs = async() => {
+        const u = await getUserData(db, "CahV2LAzEse3vFjlucjh");
+        console.log("🚀 ~ file: HouseList.js ~ line 20 ~ getU ~ u", u)
+    }
+
     const getData = async () => {
         try {
-            const userData = getUserData(db, user.iud)
-            console.log("🚀 ~ file: HouseList.js ~ line 21 ~ getData ~ userData", userData)
+            // const userData = getUserData(db, user?.iud)
+            // console.log("🚀 ~ file: HouseList.js ~ line 21 ~ getData ~ userData", userData)
             const accomadation = await getAccomadation(db)
             const filteredData = filterData(accomadation, { "housing_type": "Byt" }) || []
             const otherData = accomadation.filter(el => !filteredData.some(x => x.id === el.id))
@@ -35,10 +45,22 @@ function HouseList() {
 
     }
 
+    const setU = async () => {
+        const id = "BB"
+        const data = {
+            name: "ahoj"
+        }
+        const a = await setUserData(firestore, id, data)
+        console.log("🚀 ~ file: HouseList.js ~ line 50 ~ setU ~ a", a)
+    }
+
 
     useEffect(() => {
         // Update the document title using the browser API    
-        getData()
+        getData();
+        getU();
+        getUs();
+        setU();
     }, []);
 
     if (loading) {
