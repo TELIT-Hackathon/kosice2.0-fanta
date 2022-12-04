@@ -5,7 +5,7 @@ import Roommate from '../components/CustomerForm/Roommate';
 import "./CustomerForm.scss"
 import { useNavigate } from "react-router-dom";
 import Profile from "../components/CustomerForm/Profile";
-import { useFirebaseAuth } from '../../FirebaseAuthContext'
+import { useFirebaseAuth } from '../FirebaseAuthContext'
 
 
 function CustomerForm() {
