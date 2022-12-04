@@ -1,7 +1,6 @@
 // import React, { useState } from 'react';
 import { useState, cloneElement } from "react";
 import HouseLocation from '../components/CustomerForm/HouseLocation';
-import Surrounding from '../components/CustomerForm/Surrounding';
 import Roommate from '../components/CustomerForm/Roommate';
 import "./CustomerForm.scss"
 import { useNavigate } from "react-router-dom";

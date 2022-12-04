@@ -28,7 +28,7 @@ function Roommate({ setNextStep }) {
         ageFrom: '',
         ageTo: ''
       }}
-
+      validationSchema={schema}
       onSubmit={(values) => {
         console.log(values);
         setNextStep(values)

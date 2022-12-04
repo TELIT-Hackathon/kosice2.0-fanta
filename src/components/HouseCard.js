@@ -6,14 +6,12 @@ import { CardMedia, Grid } from "@mui/material";
 import { defaultHexColor } from "../globals";
 import BedIcon from "@mui/icons-material/Bed";
 import StraightenIcon from "@mui/icons-material/Straighten";
-import { Container, Box } from "@mui/system";
 import GenericButton from "./GenericButton";
 import {useNavigate} from "react-router-dom";
 
 function HouseCard({ data}) {
   const navigate = useNavigate();
   const {
-    id,
     thumbnail_url,
     street,
     location,
