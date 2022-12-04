@@ -29,7 +29,7 @@ const isGood = (dataItem, filterKey, filterValue) => {
 }
 
 export const filterData = (data, filter) => {
-    const newData = data.data.filter(x => {
+    const newData = data?.data?.filter(x => {
         for (var propertyName in filter) {
             if (!isGood(x, propertyName, filter[propertyName])) {
                 return false;
