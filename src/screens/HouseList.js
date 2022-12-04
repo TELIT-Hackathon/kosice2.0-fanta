@@ -4,10 +4,10 @@ import { useState, useEffect } from "react";
 import HouseCard from "../components/HouseCard";
 import { defaultHexColor } from "../globals";
 import { db, getAccomadation } from '../firebase'
-import { useLocation } from 'react-router-dom';
+// import { useLocation } from 'react-router-dom';
 
 function HouseList() {
-    const location = useLocation();
+    // const location = useLocation();
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
 
