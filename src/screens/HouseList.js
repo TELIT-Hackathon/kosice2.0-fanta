@@ -15,12 +15,12 @@ function HouseList() {
     const [allData, setAllData] = useState([]);
     const [loading, setLoading] = useState(true);
 
-    const getU = async() => {
+    const getU = async () => {
         const u = await getUsers(db);
         console.log("🚀 ~ file: HouseList.js ~ line 20 ~ getU ~ u", u)
     }
 
-    const getUs = async() => {
+    const getUs = async () => {
         const u = await getUserData(db, "CahV2LAzEse3vFjlucjh");
         console.log("🚀 ~ file: HouseList.js ~ line 20 ~ getU ~ u", u)
     }
@@ -29,12 +29,21 @@ function HouseList() {
         try {
             // const userData = getUserData(db, user?.iud)
             // console.log("🚀 ~ file: HouseList.js ~ line 21 ~ getData ~ userData", userData)
-            const accomadation = await getAccomadation(db)
-            const filteredData = filterData(accomadation, { "housing_type": "Byt" }) || []
-            const otherData = accomadation.filter(el => !filteredData.some(x => x.id === el.id))
-            setData(filteredData)
-            setAllData(otherData);
-            setLoading(false)
+            if (user?.uid) {
+                const filters = await getUserData(db, user?.uid)
+                const accomadation = await getAccomadation(db)
+                const filteredData = filterData(accomadation, filters) || []
+                const otherData = accomadation.filter(el => !filteredData.some(x => x.id === el.id))
+                setData(filteredData)
+                setAllData(otherData);
+                setLoading(false)
+            }
+            else {
+                const accomadation = await getAccomadation(db)
+                setData(accomadation)
+                setAllData([]);
+                setLoading(false)
+            }
         }
         catch (err) {
             console.log("Ops", err)
@@ -55,12 +64,8 @@ function HouseList() {
     }
 
 
-    useEffect(() => {
-        // Update the document title using the browser API    
+    useEffect(() => {  
         getData();
-        getU();
-        getUs();
-        setU();
     }, []);
 
     if (loading) {

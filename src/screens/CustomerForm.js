@@ -21,8 +21,13 @@ function CustomerForm() {
   }
 
   const saveUser = (userData) => {
-    //TODO: Remove other
-    setUserData(firestore, user.uid, userData)
+    let newData = {}
+    for (var item in userData) {
+      if (userData[item] !== '') {
+        newData = { ...newData, [item]: userData[item] }
+      }
+    }
+    setUserData(firestore, user.uid, newData)
     navigate("/");
   }
 

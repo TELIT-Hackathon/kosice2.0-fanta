@@ -36,15 +36,17 @@ export async function setUserData(db, id, data) {
   await setDoc(doc(db, "users", id), data);
 }
 
-export async function getUserData(db, id) {
+export async function getUserData(db, uid) {
   const citiesCol = collection(db, 'users');
   const citySnapshot = await getDocs(citiesCol);
-  const cityList = citySnapshot.docs.map(doc => {
+  let cityList = citySnapshot.docs.map(doc => {
     const id = doc.id
     const data = doc.data()
     return { id, ...data };
-  })
-
+  }).find(x => x.id === uid)
+  if(cityList){
+    delete cityList.id
+  }
   return cityList;
 }
 
@@ -62,7 +64,7 @@ export async function getUsers(db) {
 }
 
 export const signOut = () => {
-  signOut(auth).then(() => {
+  auth.signOut().then(() => {
     // Sign-out successful.\
     return true;
   }).catch((error) => {
