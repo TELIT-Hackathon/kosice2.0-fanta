@@ -29,6 +29,7 @@ function HouseList() {
         
     }
 
+    
 
     useEffect(() => {
         // Update the document title using the browser API    
