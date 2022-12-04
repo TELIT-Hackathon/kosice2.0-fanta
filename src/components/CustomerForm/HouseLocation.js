@@ -35,16 +35,16 @@ function HouseLocation({ setNextStep }) {
       .required('Povinné pole'),
     location: Yup.string()
       .required('Povinné pole'),
-    priceFrom: Yup.number()
+    price$From: Yup.number()
       .integer("Musí byť celé číslo")
       .max(99999999, "Maximálna cena je 99999999€"),
-    priceTo: Yup.number()
+    price$To: Yup.number()
       .integer("Musí byť celé číslo")
       .max(99999999, "Maximálna cena je 99999999€")
-      .when('priceFrom', (priceFrom) => {
-        if (priceFrom) {
+      .when('price$From', (price$From) => {
+        if (price$From) {
           return Yup.number()
-            .min(priceFrom, 'Maximálna cena musí byť vyššia ako minimálna cena')
+            .min(price$From, 'Maximálna cena musí byť vyššia ako minimálna cena')
         }
       }),
   });
@@ -55,8 +55,8 @@ function HouseLocation({ setNextStep }) {
       initialValues={{
         type: '',
         location: '',
-        priceFrom: '',
-        priceTo: ''
+        price$From: '',
+        price$To: ''
       }}
       validationSchema={schema}
       onSubmit={(values) => {
@@ -83,7 +83,7 @@ function HouseLocation({ setNextStep }) {
                 <div className='col'>
                   <Field className={`form-control form-select input-border ${errors.location ? "is-invalid" : ""}`} name="location" as="select" placeholder="Lokalita" >
                     <option disabled value="" label="Lokalita"></option>
-                    {locations.map((x,index) => (<option key={index} value={x}>{x}</option>))}
+                    {locations.map((x, index) => (<option key={index} value={x}>{x}</option>))}
                   </Field>
                   <div className="invalid-feedback">{errors.location}</div>
                 </div>
@@ -92,13 +92,13 @@ function HouseLocation({ setNextStep }) {
               <label>Cena prenájmu</label>
               <div className='row '>
                 <div className='col'>
-                  <Field className={`form-control input-border ${errors.priceFrom ? "is-invalid" : ""}`} name="priceFrom" type="number" placeholder="Od" />
-                  <div className="invalid-feedback">{errors.priceFrom}</div>
+                  <Field className={`form-control input-border ${errors.price$From ? "is-invalid" : ""}`} name="price$From" type="number" placeholder="Od" />
+                  <div className="invalid-feedback">{errors.price$From}</div>
                 </div>
 
                 <div className='col'>
-                  <Field className={`form-control input-border ${errors.priceTo ? "is-invalid" : ""}`} name="priceTo" type="number" placeholder="Do" />
-                  <div className="invalid-feedback">{errors.priceTo}</div>
+                  <Field className={`form-control input-border ${errors.price$To ? "is-invalid" : ""}`} name="price$To" type="number" placeholder="Do" />
+                  <div className="invalid-feedback">{errors.price$To}</div>
                 </div>
               </div>
 
