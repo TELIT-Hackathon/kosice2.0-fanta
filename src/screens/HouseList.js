@@ -3,33 +3,36 @@ import { Grid, Typography, CircularProgress } from "@mui/material";
 import { useState, useEffect } from "react";
 import HouseCard from "../components/HouseCard";
 import { defaultHexColor } from "../globals";
-import { db, getAccomadation } from '../firebase'
+import { db, getAccomadation, getUserData } from '../firebase'
 import { filterData } from "../helper";
 // import { useLocation } from 'react-router-dom';
+import { useFirebaseAuth } from '../FirebaseAuthContext';
 
 function HouseList() {
     // const location = useLocation();
+    const user = useFirebaseAuth();
     const [data, setData] = useState([]);
+    const [allData, setAllData] = useState([]);
     const [loading, setLoading] = useState(true);
 
     const getData = async () => {
-        // const filterList = location?.state?.filterList;
-        // let filter = Object.fromEntries(Object.entries(filterList).filter(([_, v]) => v != null || v !== ''));
-
-        // console.log("🚀 ~ file: HouseList.js ~ line 15 ~ getData ~ filter", filter)
-        try{
+        try {
+            const userData = getUserData(db, user.iud)
+            console.log("🚀 ~ file: HouseList.js ~ line 21 ~ getData ~ userData", userData)
             const accomadation = await getAccomadation(db)
-            const filterData = filterData(accomadation, {})
-            const otherData = accomadation.filter(el => el.some(x => x.id !== el.id))
-            console.log(accomadation)
-            setData(accomadation)
+            const filteredData = filterData(accomadation, { "housing_type": "Byt" }) || []
+            const otherData = accomadation.filter(el => !filteredData.some(x => x.id === el.id))
+            setData(filteredData)
+            setAllData(otherData);
             setLoading(false)
         }
-        catch{
+        catch (err) {
+            console.log("Ops", err)
             setLoading(false)
             setData([])
+            setAllData([]);
         }
-        
+
     }
 
 
@@ -65,6 +68,29 @@ function HouseList() {
                     <HouseCard data={residence} key={residence.index} />
                 </Grid>
             ))}
+            {allData.length > 1 &&
+                <>
+                    <Grid item xs={12}>
+                        <Typography paddingLeft={5} padding={2} variant={"h5"}>
+                            Ďalšie zaujímavé ponuky.
+                        </Typography>
+                    </Grid>
+                    {allData.map((residence, index) => (
+                        <Grid
+                            key={index}
+                            item
+                            md={5}
+                            xs={12}
+                            display="flex"
+                            justifyContent="center"
+                            margin={1}
+                        >
+                            <HouseCard data={residence} key={residence.index} />
+                        </Grid>
+
+                    ))}
+                </>
+            }
         </Grid>
     );
 

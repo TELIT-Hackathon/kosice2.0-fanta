@@ -5,17 +5,17 @@ import * as Yup from 'yup';
 function Roommate({ setNextStep }) {
 
   const schema = Yup.object().shape({
-    ageFrom: Yup.number()
+    age$From: Yup.number()
       .positive()
       .integer("Musí byť celé číslo")
       .max(99999999, "Maximálna cena je 99999999€"),
-    ageTo: Yup.number()
+    age$To: Yup.number()
       .integer("Musí byť celé číslo")
       .max(99999999, "Maximálna cena je 99999999€")
-      .when('ageFrom', (ageFrom) => {
-        if (ageFrom) {
+      .when('age$From', (age$From) => {
+        if (age$From) {
           return Yup.number()
-            .min(ageFrom, 'Maximálna vek musí byť vyšší ako minimálny vek')
+            .min(age$From, 'Maximálna vek musí byť vyšší ako minimálny vek')
         }
       }),
   });
@@ -25,8 +25,8 @@ function Roommate({ setNextStep }) {
       initialValues={{
         roommate: false,
         sex: '',
-        ageFrom: '',
-        ageTo: ''
+        age$From: '',
+        age$To: ''
       }}
       validationSchema={schema}
       onSubmit={(values) => {
@@ -65,13 +65,13 @@ function Roommate({ setNextStep }) {
               <label>Vek</label>
               <div className='row '>
                 <div className='col'>
-                  <Field className={`form-control input-border ${errors.ageFrom ? "is-invalid" : ""}`} name="ageFrom" type="number" placeholder="Od" />
-                  <div className="invalid-feedback">{errors.ageFrom}</div>
+                  <Field className={`form-control input-border ${errors.age$From ? "is-invalid" : ""}`} name="age$From" type="number" placeholder="Od" />
+                  <div className="invalid-feedback">{errors.age$From}</div>
                 </div>
 
                 <div className='col'>
-                  <Field className={`form-control input-border ${errors.ageTo ? "is-invalid" : ""}`} name="ageTo" type="number" placeholder="Do" />
-                  <div className="invalid-feedback">{errors.ageTo}</div>
+                  <Field className={`form-control input-border ${errors.age$To ? "is-invalid" : ""}`} name="age$To" type="number" placeholder="Do" />
+                  <div className="invalid-feedback">{errors.age$To}</div>
                 </div>
               </div>
 

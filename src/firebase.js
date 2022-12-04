@@ -30,12 +30,37 @@ export async function getAccomadation(db) {
   return cityList;
 }
 
-auth.onAuthStateChanged((user) => {
-  if (user) {
-    console.log("authenticated", user);
-  } else {
-    console.log("signed out");
-  }
-});
+export async function setUserData(db, id, data) {
+  console.log(id, data)
+  // const usersCol = collection(db, 'users');
+  // set(ref(db, 'users/' + id), data);
+}
+
+export async function getUserData(db, id) {
+  
+}
+
+// Get a list of cities from your database
+export async function getUsers(db) {
+  const citiesCol = collection(db, 'users');
+  const citySnapshot = await getDocs(citiesCol);
+  const cityList = citySnapshot.docs.map(doc => {
+    const id = doc.id
+    const data = doc.data()
+    return { id, ...data };
+  })
+
+  return cityList;
+}
+
+export const signOut = () => {
+  signOut(auth).then(() => {
+    // Sign-out successful.\
+    return true;
+  }).catch((error) => {
+    // An error happened.
+  });
+}
+
 
 
