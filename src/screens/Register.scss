@@ -1,0 +1,55 @@
+.register {
+    .input-border {
+        /* border-radius: 50%; */
+
+        border: none !important;
+        box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+        border-radius: 20px;
+
+        &:focus {
+            box-shadow: none;
+        }
+    }
+
+    &.form {
+
+
+        .form-container {
+            border: 0px solid grey;
+            margin: auto;
+            padding: 30px;
+            padding-bottom: 10px;
+            max-width: 800px;
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+            border-radius: 30px;
+
+            .form-body {
+                margin: auto;
+                max-width: 400px;
+
+                .row {
+                    gap: 15px;
+                    margin-bottom: 20px;
+                }
+
+                .form-checkbox input {
+                    margin-right: 10px;
+                }
+            }
+        }
+
+
+    }
+
+    button.next {
+        position: relative;
+        left: 50%;
+        transform: translate(-50%, 0);
+        background-color: #56DDC5;
+        border: none;
+        margin: auto;
+        width: calc(100% - 30px);
+        max-width: 400px;
+        border-radius: 20px;
+    }
+}

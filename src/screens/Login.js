@@ -1,20 +1,20 @@
-﻿import { auth } from '../firebase'
-import { createUserWithEmailAndPassword } from 'firebase/auth'
+import { auth } from '../firebase'
+import { signInWithEmailAndPassword } from 'firebase/auth'
 import React, { useEffect, useState } from "react";
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import { useNavigate } from "react-router-dom";
 import * as Yup from 'yup';
 import "./Register.scss";
 
-const RegisterComponent = () => {
+const LoginComponent = () => {
     const navigate = useNavigate()
 
-    const register = (data) => {
+    const login = (data) => {
         // Create a new user with email and password using firebase
-        createUserWithEmailAndPassword(auth, data.email, data.password)
+        signInWithEmailAndPassword(auth, data.email, data.password)
             .then((res) => {
                 console.log(res.user)
-                navigate("/customer-form")
+                navigate("/")
             })
             .catch(err => console.log(err, err.message))
     }
@@ -33,7 +33,7 @@ const RegisterComponent = () => {
                 password: ''
             }}
             validationSchema={schema}
-            onSubmit={(values) => { register(values) }}
+            onSubmit={(values) => { login(values) }}
         >
             {({ errors, touched, isValidating }) => (
                 <Form className='form register' id='signupForm'>
@@ -41,7 +41,7 @@ const RegisterComponent = () => {
 
                         <div className='form-body'>
 
-                            <h4 className='mb-3 mt-3'>Registrácia</h4>
+                            <h4 className='mb-3 mt-3'>Prihlásenie</h4>
                             <div className='row mb-3'>
                                 <div className='col'>
                                     <Field className={`form-control input-border ${errors.email ? "is-invalid" : ""}`} name="email" type="email" placeholder="Email" />
@@ -56,10 +56,10 @@ const RegisterComponent = () => {
                             </div>
                         </div>
                     </div>
-                    <button type="submit" className="btn next btn-primary">Registrácia</button>
+                    <button type="submit" className="btn next btn-primary">Prihlásenie</button>
                 </Form>
             )}
         </Formik>
     );
 }
-export default RegisterComponent;
+export default LoginComponent;

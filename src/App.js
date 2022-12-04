@@ -5,6 +5,7 @@ import Navigation from "./components/Navigation";
 import CustomerForm from "./screens/CustomerForm";
 
 import RegisterComponent from "./screens/Register";
+import LoginComponent from "./screens/Login";
 import Home from "./screens/Home";
 import HouseList from "./screens/HouseList";
 import HouseDetail from "./screens/HouseDetail";
@@ -32,16 +33,20 @@ const router = createBrowserRouter([
       element: <HouseList />,
     },
     {
-      path: "HouseDetail",
+      path: "houseDetail",
       element: <HouseDetail />,
     },
     {
-      path: "Roommates",
+      path: "roommates",
       element: <RoommateList />,
     },
     {
-      path: "Register",
+      path: "register",
       element: <RegisterComponent />,
+    },
+    {
+      path: "login",
+      element: <LoginComponent />,
     }]
 
   }
