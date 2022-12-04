@@ -54,7 +54,7 @@ function Home() {
             <div className="col">
               <div>
                 <h4>Vyhladat nehnutelnosti</h4><br></br>
-                <p>Vyhľadajte nehnuteľnosť podľa svojich preferencií</p>
+                              <p>Vyhľadajte nehnuteľnosť podľa vašich preferencií</p>
               </div>
               <Link to="results" className="arrow">
                 <ArrowForwardIcon></ArrowForwardIcon>
